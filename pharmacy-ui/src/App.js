@@ -23,7 +23,6 @@ function App() {
     setAddMedicinePopup(true);
   };
   const addMedicine = (medicine) => {
-    // Return the fetch promise so callers can wait for completion.
     return fetch(apiUrl, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -31,11 +30,9 @@ function App() {
     })
       .then(response => {
         if (!response.ok) throw new Error('Failed to add medicine');
-        // assume server returns the created medicine object
         return response.json();
       })
       .then(created => {
-        // update local state so the list reflects the new medicine immediately
         setMedicines(prev => [...prev, created]);
         alert("Medicine added " + (created.name || ""));
         return created;

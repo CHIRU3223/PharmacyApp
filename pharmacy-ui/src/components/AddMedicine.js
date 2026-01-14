@@ -2,7 +2,6 @@ import React, { useState } from "react";
 
 const AddMedicine = ({ addMedicine, setAddMedicinePopup }) => {
 
-    // keep inputs as strings so browser validation works; convert before sending
     const [medicine, setMedicine] = useState({
         name: "",
         notes: "",
